@@ -1,0 +1,156 @@
+<div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+    <div class="col-lg-10 col-md-12">
+      <!--Card-->
+      <mdb-card cascade="true" narrower="true" class="mt-5">
+        <!--Card image-->
+        <div class="view view-cascade gradient-card-header blue-gradient">
+          <h4 class="h4-responsive">Member Registration Form </h4>
+        </div>
+        <!--/Card image-->
+        <!--Card content-->
+        <mdb-card-body cascade="true" class="text-center">
+            
+          
+            <form class="text-center" style="color: #757575;" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >   
+                <div class = "row">
+                    <div class="col-md-2">
+                        <div class="md-form">
+                            <!--<mdb-select-2 label="Title" id = "title" formControlName = "title" >
+                                <mdb-select-option class= "primary" *ngFor="let option of titleSelect" [value]="option.value" >{{ option.label }}</mdb-select-option>
+                            </mdb-select-2>-->
+                            <mdb-select 
+                                [options] = "titleSelect" name = "title" placeholder=" " formControlName = "title" class = "colorful-select dropdown-info" >
+                            </mdb-select>
+                            <label for="title" class = "active">Title</label>   
+                            
+                        </div>  
+                    </div>
+                    <div class="col-md-5">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="firstName" formControlName = "firstName" class="form-control" mdbValidate >
+                            <label for="firstName" class = "active">First Name*</label>
+                            
+                        </div>  
+                    </div>
+                    <div class="col-md-5">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="lastName" formControlName = "lastName" class="form-control" mdbValidate>
+                            <label for="lastName" class = "active">Last Name*</label>
+                        </div>  
+                    </div>
+
+                </div>
+
+                <div class = "row">               
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="address" formControlName = "address" class="form-control" mdbValidate>
+                            <label for="address" class = "active">Address*</label>
+                        </div>  
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class="col-md-4">
+                        <div class="md-form"> 
+                            <input mdbInput type="text" id="area" formControlName = "area" class="form-control" mdbValidate>
+                            <label for="area" class = "active">Area*</label>
+                        </div>  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="pincode" formControlName = "pincode" class="form-control" mdbValidate>
+                            <label for="pincode" class = "active">Pincode*</label>
+                        </div>  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="md-form"> 
+                            <input mdbInput type="text" id="mobileNo" formControlName = "mobileNo" class="form-control" mdbValidate>
+                            <label for="mobileNo" class = "active">Mobile No.*</label>
+                        </div>  
+                    </div>
+                </div>        
+
+                <div class = "row">             
+                    <div class="col-md-4">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="emailId" formControlName = "emailId" class="form-control" mdbValidate>
+                            <label for="emailId" class = "active">Email ID*</label>
+                        </div>  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="md-form"> 
+                            <input mdbInput type="text" id="dtOfBirth" formControlName = "dtOfBirth" class="form-control" mdbValidate>
+                            <label for="dtOfBirth" class = "active">Date of Birth*</label>
+                        </div>  
+                    </div>
+                    <div class="col-md-3">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="profession" formControlName = "profession" class="form-control">
+                            <label for="profession" class = "active">Profession</label>
+                        </div>  
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class="col-md-2">
+                        <div class="md-form"> 
+                            <div class="md-form">
+                                <div class="form-check form-check-inline md-form">
+                                    <input type = "radio" class = "form-check-input form-control" id = "gender_male" name = "gender" [value] = "true" formControlName = "gender" mdbInput>
+                                    <label class = "form-checl-label" for = "gender_male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type = "radio" class = "form-check-input" id = "gender_female" name = "gender" [value] = "false" formControlName = "gender" mdbInput>
+                                    <label class = "form-checl-label" for = "gender_female">Female</label>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-md-3">
+                        <div class="md-form"> 
+                            <mdb-checkbox filledIn = "yes" checked="checked"  name = "isMarried" formControlName = "isMarried" (click) = "enableSpouse($event)" >Is Married? </mdb-checkbox>
+                        </div>  
+                    </div>
+                    <div class="col-md-3">
+                        <div class="md-form">
+                            <input mdbInput type="text" id="spouseName" formControlName = "spouseName" class="form-control" disabled>
+                            <label for="spouseName" class = "active">Spouse Name</label>
+                        </div>  
+                    </div>
+                    <div class="col-md-2">
+                        <div class="md-form">
+                            <mdb-select [disabled]="true"
+                                [options] = "familycountSelect" name = "familyCount" placeholder=" " formControlName = "familyCount" class = "colorful-select dropdown-info" >
+                            </mdb-select>
+                            <label for="familyCount" class = "active">Family Count</label>
+                        </div>  
+                    </div>
+                </div>
+                    
+                    
+                
+                    
+                    <div class = "text-right">
+                        <button
+                        mdbBtn
+                        color="tw"
+                        type = "submit" size = "lg"
+                        class = "btn btn-info waves-light" [disabled] = "!registrationForm.valid"
+                        mdbWavesEffect>
+                        Submit
+                        </button>
+                        <button 
+                            type = "button" mdbBtn color = "tw" size = "lg" 
+                            class = "btn btn-info waves-light mx-3"
+                            mdbWavesEffect  (click) = "reset()">
+                            Reset
+                        </button>
+                    </div>
+                </form>
+            </mdb-card-body>
+        <!--/.Card content-->
+        </mdb-card>
+      <!--/.Card-->
+    </div>
+</div>
+  
