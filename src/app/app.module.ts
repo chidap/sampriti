@@ -22,6 +22,7 @@ import { EventCalendarComponent } from './static/event-calendar/event-calendar.c
 import { HoneContent1Component } from './static/hone-content1/hone-content1.component';
 import { HomeContent2Component } from './static/home-content2/home-content2.component';
 import { HomeContent3Component } from './static/home-content3/home-content3.component';
+import { LoginComponent } from './authentication/login/login.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { HomeContent3Component } from './static/home-content3/home-content3.comp
     HoneContent1Component,
     HomeContent2Component,
     HomeContent3Component,
+    LoginComponent,
    
     
   ],

@@ -21,6 +21,7 @@ export class MemberRegistration {
     startDate: Date;
     expiryDate: Date;
     memberId: string;
+    password:string;
     isActive: string;
 
 }

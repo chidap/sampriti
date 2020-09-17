@@ -1,0 +1,130 @@
+<div
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+        <!-- Tab panels -->
+        <!--<mdb-tabset
+          #staticTabs
+          [buttonClass]="'nav md-tabs tabs-2 light-blue darken-3'"
+          [contentClass]="''"
+          class="tab-content"
+        >-->
+          <!--Panel 7-->
+         <!---<mdb-tab
+            class="tab-pane fade in show active"
+            id="panel7"
+            role="tabpanel"
+            heading="<i class='fas fa-user'></i> Login"
+          >-->
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <form [formGroup]="validatingForm">
+                <div class="md-form form-sm">
+                  <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+                  <input
+                    mdbInput
+                    mdbValidate
+                    type="text"
+                    id="form22"
+                    class="form-control"
+                    formControlName="modalFormLoginEmail"
+                  />
+                  <label for="form22">Your email</label>
+                  <mdb-error
+                    *ngIf="
+                      modalFormLoginEmail.invalid &&
+                      (modalFormLoginEmail.dirty || modalFormLoginEmail.touched)
+                    "
+                  >
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="
+                      modalFormLoginEmail.valid &&
+                      (modalFormLoginEmail.dirty || modalFormLoginEmail.touched)
+                    "
+                    >Input valid
+                  </mdb-success>
+                </div>
+
+                <div class="md-form form-sm">
+                  <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+                  <input
+                    mdbInput
+                    mdbValidate
+                    type="password"
+                    id="form23"
+                    class="form-control"
+                    formControlName="modalFormLoginPassword"
+                  />
+                  <label for="form23">Your password</label>
+                  <mdb-error
+                    *ngIf="
+                      modalFormLoginPassword.invalid &&
+                      (modalFormLoginPassword.dirty || modalFormLoginPassword.touched)
+                    "
+                  >
+                    Input invalid
+                  </mdb-error>
+                  <mdb-success
+                    *ngIf="
+                    modalFormLoginPassword.valid &&
+                      (modalFormLoginPassword.dirty || modalFormLoginPassword.touched )
+                    "
+                  >
+                    Input valid
+                  </mdb-success>
+                </div>
+              </form>
+              <div class="text-center mt-2">
+                <button mdbBtn color="info" class="waves-light" mdbWavesEffect>
+                  Log in
+                  <mdb-icon fas icon="sign-in-alt" class="ml-1"></mdb-icon>
+                </button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer display-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>
+                  Not a member?
+                  <a href="#" class="blue-text">Sign Up</a>
+                </p>
+                <p>
+                  Forgot
+                  <a href="#" class="blue-text">Password?</a>
+                </p>
+              </div>
+              <button
+                type="button"
+                mdbBtn
+                color="info"
+                outline="true"
+                class="ml-auto"
+                data-dismiss="modal"
+                (click)="frame.hide()"
+                mdbWavesEffect
+              >
+                Close
+              </button>
+            </div>
+          <!--</mdb-tab>-->
+          <!--/.Panel 7-->
+        <!--</mdb-tabset>-->
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+Modal with avatar
