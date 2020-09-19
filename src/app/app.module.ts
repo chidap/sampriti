@@ -1,3 +1,4 @@
+import { TeamComponent } from './static/team/team.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,7 +41,7 @@ import { AboutUsComponent } from './static/about-us/about-us.component';
     HomeContent3Component,
     FooterComponent,
     AboutUsComponent,
-    
+    TeamComponent
     
    
     
