@@ -23,7 +23,8 @@ import { HoneContent1Component } from './static/hone-content1/hone-content1.comp
 import { HomeContent2Component } from './static/home-content2/home-content2.component';
 import { HomeContent3Component } from './static/home-content3/home-content3.component';
 import { FooterComponent } from './navigation/footer/footer.component';
-//import { LoginComponent } from './authentication/login/login.component';
+import { AboutUsComponent } from './static/about-us/about-us.component';
+
 
 
 @NgModule({
@@ -38,6 +39,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
     HomeContent2Component,
     HomeContent3Component,
     FooterComponent,
+    AboutUsComponent,
+    
     
    
     
