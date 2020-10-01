@@ -1,0 +1,177 @@
+<div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+    <div class="col-lg-10 col-md-12">
+        <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+        <!--Card image-->
+            <h1 class="h1-responsive font-weight-bold text-center my-5">Contact Us</h1>
+            <!--/Card image-->
+            <!--Card content-->
+            <mdb-card-body cascade="true" class="text-left">
+                <h4 class="dark-grey-text  w-responsive mx-auto mb-4" >
+                    <span class="card-title ">Office Address</span> : Door# 141, Tower 5, DLF Garden City, Thazhambur, Chennai - 600130
+                </h4>
+                <p class="dark-grey-text w-responsive mx-auto mb-4">
+                    For any queries regarding Durga Puja, Membership Benefits and other details, please contact 
+                </p>    
+                <ul class="dark-grey-text w-responsive mx-auto mb-3">
+                    <li>Sonali Boral : 9952990178</li>
+                    <li>Chidananda Patra : 9884489539</li>
+                    <li>Sugato Roy: 9840590916</li>
+                    <li>Jayashree Ganguly: 9903142160</li>
+                </ul>
+                <p class="dark-grey-text w-responsive mx-auto mb-2">
+                    For any queries regarding Cultural Programme, comments on a particular program, please contact 
+                </p>
+                <ul class="dark-grey-text w-responsive mx-auto mb-3">
+                    <li>Sapna Roy : 9884489539</li>
+                </ul> 
+                <p class="dark-grey-text w-responsive mx-auto mb-2">
+                    You can also send us your enqueiries by submitting the form below   
+                </p>
+            </mdb-card-body>
+            <div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+                <div class="col-lg-8 col-md-12">
+                    <mdb-card cascade="true" narrower="true" class="mt-5">
+                        <!--Card image-->
+                        <div class="view view-cascade gradient-card-header blue-gradient">
+                            <h4 class="h4-responsive">Contact Us Form </h4>
+                          </div>
+                        <!--/Card image-->
+                        <!--Card content-->
+                        <mdb-card-body cascade="true" class="text-center">
+                            
+                            <form
+                                class="text-center"
+                                style="color: #757575;"
+                                [formGroup]="contactForm"
+                                (ngSubmit)="onSubmit(contactForm.value)"
+                            >
+                                <div class="md-form mt-3">
+                                    <input
+                                        type="text"
+                                        formControlName="contactFormName"
+                                        id="contactFormName"
+                                        class="form-control"
+                                        mdbInput
+                                        mdbValidate
+                                    />
+                                    <label for="contactFormName" class = "active">Name</label>
+                                    <mdb-error *ngIf="name.invalid && (name.dirty || name.touched)"
+                                        >Input invalid</mdb-error
+                                    >
+                                    <mdb-success *ngIf="name.valid && (name.dirty || name.touched)"
+                                        ></mdb-success
+                                    >
+                                </div>
+                
+                                <div class="md-form mt-3">
+                                    <input
+                                        type="email"
+                                        formControlName="contactFormEmail"
+                                        id="contactFormEmail"
+                                        class="form-control"
+                                        mdbInput
+                                        mdbValidate
+                                    />
+                                    <label for="contactFormEmail" class = "active">E-mail</label>
+                                    <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)"
+                                        >Input invalid</mdb-error
+                                    >
+                                    <mdb-success *ngIf="email.valid && (email.dirty || email.touched)"
+                                        ></mdb-success
+                                    >
+                                </div>
+                
+                                <div class="md-form">
+                                    <input
+                                        type="text"
+                                        formControlName="contactFormMobile"
+                                        id="contactFormMobile"
+                                        class="form-control"
+                                        mdbInput
+                                        mdbValidate
+                                    />
+                                    <label for="contactFormMobile" class = "active">Mobile No</label>
+                                    <mdb-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)"
+                                        >Input invalid</mdb-error
+                                    >
+                                    <mdb-success *ngIf="mobile.valid && (mobile.dirty || mobile.touched)"
+                                        ></mdb-success
+                                    >
+                                </div>
+                
+                                <div class="md-form">
+                                    <input
+                                        type="text"
+                                        formControlName="contactFormSubject"
+                                        id="contactFormSubject"
+                                        class="form-control"
+                                        mdbInput
+                                        mdbValidate
+                                    />
+                                    <label for="contactFormSubject" class = "active">Subject</label>
+                                    <mdb-error *ngIf="subject.invalid && (subject.dirty || subject.touched)"
+                                        >Input invalid</mdb-error
+                                    >
+                                    <mdb-success *ngIf="subject.valid && (subject.dirty || subject.touched)"
+                                        ></mdb-success
+                                    >
+                                </div>
+                
+                    
+                                <div class="md-form">
+                                    <textarea
+                                        type="text"
+                                        formControlName="contactFormMessage"
+                                        id="contactFormMessage"
+                                        class="form-control md-textarea"
+                                        mdbInput
+                                        mdbValidate
+                                    ></textarea>
+                                    <label for="contactFormMessage" class = "active">Message</label>
+                                    <mdb-error *ngIf="message.invalid && (message.dirty || message.touched)"
+                                        >Input invalid</mdb-error
+                                    >
+                                    <mdb-success *ngIf="message.valid && (message.dirty || message.touched)"
+                                        ></mdb-success
+                                    >
+                                </div>
+                
+                    
+                
+                                <button
+                                mdbBtn
+                                gradient="blue" class= "waves-light" rounded="true"                               
+                                size = "lg" 
+                                
+                                mdbWavesEffect
+                                type="submit"
+                                [disabled]="disabledSubmitButton"
+                                >
+                                Send
+                                </button>
+
+                                <button 
+                                    type = "button" mdbBtn color = "tw" size = "lg" 
+                                    gradient="blue" class= "waves-light" rounded="true"
+                                    mdbWavesEffect  (click) = "reSet()">
+                                    Reset
+                                </button>
+                            </form>
+                            
+                        </mdb-card-body>
+                        <!--/.Card content-->
+                        
+                    </mdb-card>
+            <!--/.Card content-->
+                </div>
+            </div>
+            <br><br>
+        </mdb-card>
+      <!--/.Card-->
+
+      
+      <!--/.Card-->
+      <br>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { AgmCoreModule } from '@agm/core';
@@ -25,6 +26,8 @@ import { HomeContent2Component } from './static/home-content2/home-content2.comp
 import { HomeContent3Component } from './static/home-content3/home-content3.component';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { AboutUsComponent } from './static/about-us/about-us.component';
+import { ContactUsComponent } from './static/contact-us/contact-us.component';
+import { PujaUpdateComponent } from './static/puja-update/puja-update.component';
 
 
 
@@ -41,7 +44,9 @@ import { AboutUsComponent } from './static/about-us/about-us.component';
     HomeContent3Component,
     FooterComponent,
     AboutUsComponent,
-    TeamComponent
+    TeamComponent,
+    ContactUsComponent,
+    PujaUpdateComponent
     
    
     
@@ -54,6 +59,7 @@ import { AboutUsComponent } from './static/about-us/about-us.component';
     HttpClientModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp( environment.firebaseConfig ),
+    AngularFireFunctionsModule,
    /* AgmCoreModule.forRoot({
       apiKey: 'GOOGLE MAPS API KEY'
     }),*///

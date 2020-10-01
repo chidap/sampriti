@@ -1,0 +1,72 @@
+<header>
+	<section class="view intro intro-2 ">
+	  <div class="full-bg-img rgba-stylish-strong mask flex-center">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto ">
+
+	          <!--Form with header-->
+	          <mdb-card cascade="true" narrower="true" class="mt-3">
+              <div class="view view-cascade gradient-card-header blue-gradient">
+                <h3><mdb-icon fas icon="user" ></mdb-icon> Log in:</h3>
+              </div>
+              <mdb-card-body>
+
+	              <!--Header-->
+	              
+	              <!--Body-->
+	              <form class="text-center" style="color: #757575;" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" >
+  
+                  <div class="md-form">
+                    <input type="text" id="emailId" formControlName = "emailId" class="form-control" mdbInput mdbValidate />
+                    <label for="emailId" class = "active">Your email</label>
+                    
+                    <mdb-error *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
+                    >Input invalid</mdb-error>
+                    <mdb-success *ngIf="emailId.valid && (emailId.dirty || emailId.touched)">
+                    </mdb-success>
+                  </div>
+        
+                  <div class="md-form">
+                    <input type="text" id="pwd" formControlName = "pwd" class="form-control" mdbInput mdbValidate />
+                    <label for="pwd" class = "active">Your password</label>
+                    <mdb-error *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)"
+                    >Input invalid</mdb-error>
+                    <mdb-success *ngIf="pwd.valid && (pwd.dirty || pwd.touched)">
+                    </mdb-success>
+                  </div>
+        
+                  <div class="text-center">
+                    <button 
+                      mdbBtn gradient="blue" class= "waves-light" 
+                      rounded="true" mdbWavesEffect
+                      type="submit" [disabled]="disabledSubmitButton">Login
+                    </button>
+                    <button 
+                      mdbBtn gradient="blue" class= "waves-light" type = "button" 
+                      rounded="true" mdbWavesEffect (click) = "reSet()">Reset
+                    </button>
+                  </div>
+                  <div class = "d-flex justify-content-around mt-3">
+                      <div>
+                          <p>Not a member?
+                              <a routerLink = "/registration">Register</a>
+                          </p>
+                      </div>
+                      <div>
+                          <a href = "">Forgot Password</a>
+                      </div>
+                  </div>
+                </form>
+
+	            </mdb-card-body>
+	          </mdb-card>
+	          <!--/Form with header-->
+
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+  </section>
+</header>
+

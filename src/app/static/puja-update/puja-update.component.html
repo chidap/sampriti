@@ -1,0 +1,72 @@
+<div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+    <div class="col-lg-11 col-md-12">
+        <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+<!--<div class="row col-lg-12 col-md-12 justify-content-center d-flex mb-5">-->
+            <mdb-card-body cascade="true" class="text-left">
+            <!-- Intro Section -->
+
+                <main >
+                    <div class="container py-5">
+                    <!--Section: Blog v.3-->
+                    <section
+                        class="section extra-margins pb-3 text-left text-lg-left wow fadeIn py-3"
+                        data-wow-delay="0.3s"
+                        style="animation-name: none; visibility: visible;"
+                    >
+                        <!--Section heading-->
+                        <h2 class="section-heading h1 pt-5">Recent posts</h2>
+                        <!--Section description-->
+                        <p class="section-description">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <hr class="mb-5" />
+                        <!--Grid row-->
+                        <div *ngFor="let post of posts">
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="col-lg-5 mb-4">
+                            <!--Featured image-->
+                                <div class="view overlay z-depth-1">
+                                    <img
+                                    src="{{ post.img }}"
+                                    alt="{{ post.number }} sample image"
+                                    class="img-fluid"
+                                    />
+                                    <a>
+                                    <div
+                                        class="mask rgba-white-slight waves-effect waves-light"
+                                        mdbWavesEffect
+                                    ></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                
+                            <!--Grid column-->
+                            <div class="col-lg-7 mb-4">
+                            <!--Excerpt-->
+                            
+                            <h4 class="mb-4">
+                                <strong>{{ post.title }}</strong>
+                            </h4>
+                            <p>{{ post.content }}</p>
+                            
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <hr class="mb-5" />
+                        <!--Grid row-->
+                        </div>
+                
+                    </section>
+                    <!--Section: Blog v.2-->
+                    </div>
+                </main>
+            </mdb-card-body>
+        </mdb-card>
+        <br><br>
+    </div>
+</div>

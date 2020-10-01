@@ -129,18 +129,18 @@
                     
                 
                     
-                    <div class = "text-right">
+                    <div class = "text-center">
                         <button
                         mdbBtn
                         color="tw"
                         type = "submit" size = "lg"
-                        class = "btn btn-info waves-light" [disabled] = "!registrationForm.valid"
+                        gradient="blue" class= "waves-light" rounded="true" [disabled] = "!registrationForm.valid"
                         mdbWavesEffect>
                         Submit
                         </button>
                         <button 
                             type = "button" mdbBtn color = "tw" size = "lg" 
-                            class = "btn btn-info waves-light mx-3"
+                            gradient="blue" class= "waves-light" rounded="true"
                             mdbWavesEffect  (click) = "reset()">
                             Reset
                         </button>
@@ -149,6 +149,7 @@
             </mdb-card-body>
         <!--/.Card content-->
         </mdb-card>
+        <br><br>
       <!--/.Card-->
     </div>
 </div>
