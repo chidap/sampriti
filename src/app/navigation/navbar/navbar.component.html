@@ -35,21 +35,22 @@
       
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item waves-light" mdbRippleRadius>
-                    <a class="nav-link" routerLink = "/member"><i class = "fa fa-users"  ></i> Members</a>
+                    <a *ngIf = "isLoggedIn" class="nav-link" routerLink = "/member/addExpense"><i class = "fa fa-users"  ></i> Manage Expense</a>
                 </li>
                 <li class="nav-item dropdown btn-group" dropdown>
-                    <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <a *ngIf = "isLoggedIn" dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                         <i class = "fa fa-user-secret" ></i> Admin<span class="caret"></span></a>
                     <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                        <a class="dropdown-item waves-light" href="#" mdbWavesEffect><i class="fa fa-user-plus" aria-hidden = "true"></i> Add User</a>
-                        <a class="dropdown-item waves-light" href="#" mdbWavesEffect> Add Expenses</a>
-                        <a class="dropdown-item waves-light" href="#" mdbWavesEffect> Add Donations</a>
+                        <a class="dropdown-item waves-light" routerLink = "/member/viewRegistration" mdbWavesEffect>View Registration</a>
+                        <a class="dropdown-item waves-light" routerLink = "/member/viewMembers" mdbWavesEffect>View Memebrs</a>
+                        <a class="dropdown-item waves-light" routerLink = "/member/viewContact" mdbWavesEffect>Contact Us</a>
                         <div class="divider dropdown-divider"></div>
                         <a class="dropdown-item waves-light" href="#" mdbWavesEffect>Reports</a>
                     </div>
                 </li>
                 <li class="nav-item waves-light" mdbRippleRadius>
-                    <a class="nav-link" routerLink = "/login"><i class = "fa fa-sign-out" ></i> Login</a>
+                    <a *ngIf = "!isLoggedIn" class="nav-link" routerLink = "/member"><i class = "fa fa-sign-out" ></i> Login</a>
+                    <a *ngIf = "isLoggedIn" class="nav-link" (click)="onLogout()"><i class = "fa fa-sign-out" ></i> Logout</a>
                 </li>
             </ul>
             

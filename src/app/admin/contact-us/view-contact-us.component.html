@@ -1,0 +1,91 @@
+<div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+    <div class="col-lg-11 col-md-12">
+        <mdb-card cascade="true" narrower="true" class="mt-3">
+           
+            <div class="view view-cascade gradient-card-header blue-gradient">
+              <h3>Contact Us</h3>
+            </div>
+        <!--/Card image-->
+
+        <div class="px-4">
+
+            <div class="table-wrapper">
+            <!--Table-->
+            <table class="mb-0 responsive" mdbTable hover="true">
+
+                <!--Table head-->
+                <thead>
+                <tr>
+                
+                <th class="th-lg">
+                    <a (click)="sortBy('firstName')">Name
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <th class="th-lg">
+                    <a (click)="sortBy('emailid')">Email Id
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <th class="th-lg">
+                    <a (click)="sortBy('mobileNo')">MobileNo
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <th class="th-lg">
+                    <a (click)="sortBy('profession')">Subject
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <th class="th-lg">
+                    <a (click)="sortBy('profession')">Mesage
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <th class="th-lg">
+                    <a (click)="sortBy('profession')">Date of Submit
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <!--<th class="th-lg">
+                    <a (click)="sortBy('country')">Country
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>
+                <th class="th-lg">
+                    <a (click)="sortBy('city')">City
+                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                    </a>
+                </th>-->
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr *ngFor="let contact of contacts;let i = index">
+                
+                <td>{{contact.name}} </td>
+                <td>{{contact.email}} </td>
+                <td>{{contact.mobile}} </td>
+                <td>{{contact.subject}} </td>
+                <td>{{contact.message}} </td>
+                <td>{{contact.dtOfSubmit}} </td>
+                <td>
+                    <button type="button" mdbBtn color="info" outline="true" rounded="true" size="sm" class="px-2" (click) = "deleteContact(contact)" mdbWavesEffect>
+                        <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+                    </button>
+                </td>
+               
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+            </div>
+        </div>
+        </mdb-card>
+        <br><br><br>
+    </div>
+</div>
+

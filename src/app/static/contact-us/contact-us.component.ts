@@ -29,8 +29,8 @@ export class ContactUsComponent implements OnInit {
     ) {
     this.contactForm = fb.group({
       'contactFormName': ['', Validators.required],
-      'contactFormEmail': ['', Validators.compose([Validators.required, Validators.email])],
-      'contactFormMobile': ['', Validators.compose([Validators.required])],
+      'contactFormEmail': ['', [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      'contactFormMobile': ['', [Validators.minLength(10),Validators.maxLength(10),Validators.pattern('^[0-9]*$')]],
       'contactFormSubject': ['', Validators.required],
       'contactFormMessage': ['', Validators.required],
       
@@ -58,12 +58,17 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(value: any) {
+    var date = new Date();
+    var dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 ))
+                    .toISOString()
+                    .split("T")[0];
     this.contact = { 
       'name': value.contactFormName, 
       'email' : value.contactFormEmail,
       'mobile': value.contactFormMobile,
       'subject': value.contactFormSubject,
       'message': value.contactFormMessage,
+      'dtOfSubmit': dateString
     };
     
     const options = { toastClass: 'opacity' };

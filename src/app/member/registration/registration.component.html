@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="md-form">
-                            <input mdbInput type="text" id="pincode" formControlName = "pincode" class="form-control" mdbValidate>
+                            <input mdbInput type="text" id="pincode" formControlName = "pincode" class="form-control" mdbValidate minLength="5" maxLength="7">
                             <label for="pincode" class = "active">Pincode*</label>
                         </div>  
                     </div>
@@ -79,7 +79,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="md-form"> 
-                            <input mdbInput type="text" id="dtOfBirth" formControlName = "dtOfBirth" class="form-control" mdbValidate>
+                            <!--<input mdbInput type="text" id="dtOfBirth" formControlName = "dtOfBirth" class="form-control" mdbValidate>-->
+                            <mdb-date-picker #datePicker 
+                                id = "dtOfBirth" formControlName = "dtOfBirth"
+                                name = "dtOfBirth" [options] = "myDatePickerOptions"
+                            >
+                            </mdb-date-picker>
                             <label for="dtOfBirth" class = "active">Date of Birth*</label>
                         </div>  
                     </div>
@@ -95,11 +100,11 @@
                         <div class="md-form"> 
                             <div class="md-form">
                                 <div class="form-check form-check-inline md-form">
-                                    <input type = "radio" class = "form-check-input form-control" id = "gender_male" name = "gender" [value] = "true" formControlName = "gender" mdbInput>
+                                    <input type = "radio" class = "form-check-input form-control" id = "gender_male" name = "gender" value = "male" formControlName = "gender" mdbInput>
                                     <label class = "form-checl-label" for = "gender_male">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type = "radio" class = "form-check-input" id = "gender_female" name = "gender" [value] = "false" formControlName = "gender" mdbInput>
+                                    <input type = "radio" class = "form-check-input" id = "gender_female" name = "gender" value = "female" formControlName = "gender" mdbInput>
                                     <label class = "form-checl-label" for = "gender_female">Female</label>
                                 </div>
                             </div>
@@ -112,13 +117,13 @@
                     </div>
                     <div class="col-md-3">
                         <div class="md-form">
-                            <input mdbInput type="text" id="spouseName" formControlName = "spouseName" class="form-control" disabled>
+                            <input mdbInput type="text" id="spouseName" formControlName = "spouseName" class="form-control" >
                             <label for="spouseName" class = "active">Spouse Name</label>
                         </div>  
                     </div>
                     <div class="col-md-2">
                         <div class="md-form">
-                            <mdb-select [disabled]="true"
+                            <mdb-select 
                                 [options] = "familycountSelect" name = "familyCount" placeholder=" " formControlName = "familyCount" class = "colorful-select dropdown-info" >
                             </mdb-select>
                             <label for="familyCount" class = "active">Family Count</label>

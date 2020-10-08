@@ -1,3 +1,4 @@
+import { AuthService } from './core/auth.service';
 import { TeamComponent } from './static/team/team.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,11 @@ import { FooterComponent } from './navigation/footer/footer.component';
 import { AboutUsComponent } from './static/about-us/about-us.component';
 import { ContactUsComponent } from './static/contact-us/contact-us.component';
 import { PujaUpdateComponent } from './static/puja-update/puja-update.component';
+//import { ViewRegistrationComponent } from './admin/view-registration/view-registration.component';
+//import { ViewUserDetailComponent } from './admin/view-user-detail/view-user-detail.component';
+//import { EditRegistrationComponent } from './admin/edit-registration/edit-registration.component';
+//import { ViewMemberComponent } from './admin/view-member/view-member.component';
+//import { MemberDetailComponent } from './admin/member-detail/member-detail.component';
 
 
 
@@ -46,7 +52,8 @@ import { PujaUpdateComponent } from './static/puja-update/puja-update.component'
     AboutUsComponent,
     TeamComponent,
     ContactUsComponent,
-    PujaUpdateComponent
+    PujaUpdateComponent,
+    
     
    
     
@@ -73,6 +80,7 @@ import { PujaUpdateComponent } from './static/puja-update/puja-update.component'
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     MDBSpinningPreloader,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,230 @@
+<div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+    <div class="col-lg-10 col-md-12">
+      <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+        <!--Card image-->
+            <div class="view view-cascade gradient-card-header blue-gradient">
+            <h4 class="h4-responsive">Member Registration Form </h4>
+            </div>
+            <!--/Card image-->
+            <!--Card content-->
+            <mdb-card-body cascade="true" class="text-center">
+                
+            
+                <form class="text-center" style="color: #757575;" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >   
+                    <div class = "row">
+                        <div class="col-md-2">
+                            <div class="md-form">
+                                <!--<mdb-select-2 label="Title" id = "title" formControlName = "title" >
+                                    <mdb-select-option class= "primary" *ngFor="let option of titleSelect" [value]="option.value" >{{ option.label }}</mdb-select-option>
+                                </mdb-select-2>-->
+                                <mdb-select 
+                                    [options] = "titleSelect" name = "title" placeholder=" " formControlName = "title" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="title" class = "active">Title</label>   
+                            </div>  
+                        </div>
+                        <div class="col-md-5">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="firstName" formControlName = "firstName" class="form-control" mdbValidate >
+                                <label for="firstName" class = "active">First Name*</label>
+                                
+                            </div>  
+                        </div>
+                        <div class="col-md-5">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="lastName" formControlName = "lastName" class="form-control" mdbValidate>
+                                <label for="lastName" class = "active">Last Name*</label>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class = "row">               
+                        <div class="col-md-12">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="address" formControlName = "address" class="form-control" mdbValidate>
+                                <label for="address" class = "active">Address*</label>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class="col-md-4">
+                            <div class="md-form"> 
+                                <input mdbInput type="text" id="area" formControlName = "area" class="form-control" mdbValidate>
+                                <label for="area" class = "active">Area*</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="pincode" formControlName = "pincode" class="form-control" mdbValidate minLength="5" maxLength="7">
+                                <label for="pincode" class = "active">Pincode*</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form"> 
+                                <input mdbInput type="text" id="mobileNo" formControlName = "mobileNo" class="form-control" mdbValidate>
+                                <label for="mobileNo" class = "active">Mobile No.*</label>
+                            </div>  
+                        </div>
+                    </div>        
+
+                    <div class = "row">             
+                        <div class="col-md-4">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="emailid" formControlName = "emailid" class="form-control" mdbValidate>
+                                <label for="emailid" class = "active">Email ID*</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form"> 
+                                <!--<input mdbInput type="text" id="dtOfBirth" formControlName = "dtOfBirth" class="form-control" mdbValidate>-->
+                                <mdb-date-picker #datePicker 
+                                    id = "dtOfBirth" formControlName = "dtOfBirth"
+                                    name = "dtOfBirth" [options] = "myDatePickerOptions"
+                                >
+                                </mdb-date-picker>
+                                <label for="dtOfBirth" class = "active">Date of Birth*</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="profession" formControlName = "profession" class="form-control">
+                                <label for="profession" class = "active">Profession</label>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="col-md-2">
+                            <div class="md-form"> 
+                                <div class="md-form">
+                                    <div class="form-check form-check-inline md-form">
+                                        <input type = "radio" class = "form-check-input form-control" 
+                                            formControlName = "gender" [value]  = "true"
+                                            [checked]="registrationForm.get('gender').value == true" mdbInput>
+                                        <label class = "form-checl-label" >Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type = "radio" class = "form-check-input" 
+                                            formControlName = "gender"  [value] = "false"
+                                            [checked]="registrationForm.get('gender').value == false" mdbInput>
+                                        <label class = "form-checl-label" >Female</label>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form"> 
+                                <mdb-checkbox filledIn = "yes" checked="checked"  name = "isMarried" formControlName = "isMarried" >Is Married? </mdb-checkbox>
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="spouseName" formControlName = "spouseName" class="form-control" >
+                                <label for="spouseName" class = "active">Spouse Name</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-2">
+                            <div class="md-form">
+                                <mdb-select 
+                                    [options] = "familycountSelect" name = "familyCount" placeholder=" " formControlName = "familyCount" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="familyCount" class = "active">Family Count</label>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class = "row">             
+                        <div class="col-md-2">
+                            <div class="md-form"> 
+                                <mdb-checkbox filledIn = "yes" checked="checked"  name = "isPaid" formControlName = "isPaid" >Is Paid? </mdb-checkbox>
+                            </div>    
+                        </div>
+                        <div class="col-md-2">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="paidAmount" formControlName = "paidAmount" class="form-control">
+                                <label for="paidAmount" class = "active">Paid Amount *</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form"> 
+                                <!--<input mdbInput type="text" id="dtOfBirth" formControlName = "dtOfBirth" class="form-control" mdbValidate>-->
+                                <mdb-date-picker #datePicker 
+                                    id = "dtOfBirth" formControlName = "startDate"
+                                    name = "startDate" [options] = "myDatePickerOptions"
+                                >
+                                </mdb-date-picker>
+                                <label for="startDate" class = "active">Membership Start Date *</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form"> 
+                                <!--<input mdbInput type="text" id="dtOfBirth" formControlName = "dtOfBirth" class="form-control" mdbValidate>-->
+                                <mdb-date-picker #datePicker 
+                                    id = "dtOfBirth" formControlName = "expiryDate"
+                                    name = "expiryDate" [options] = "myDatePickerOptions"
+                                >
+                                </mdb-date-picker>
+                                <label for="expiryDate" class = "active">Membership Expiry Date*</label>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class = "row">             
+                        <div class="col-md-2">
+                            <div class="md-form"> 
+                                <mdb-checkbox filledIn = "yes" checked="checked"  name = "isActive" formControlName = "isActive" >Is Active? </mdb-checkbox>
+                            </div>    
+                        </div>
+                        <div class="col-md-2">
+                            <div class="md-form">
+                                <mdb-select 
+                                    [options] = "roleSelect" name = "role" placeholder=" " formControlName = "role" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="role" class = "active">Role</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="memberId" formControlName = "memberId" class="form-control">
+                                <label for="memberId" class = "active">Membership ID *</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-4">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="password" formControlName = "password" class="form-control">
+                                <label for="password" class = "active">Password *</label>
+                            </div>  
+                        </div>
+                    </div>
+                        
+                        
+                    
+                        
+                    <div class = "text-center">
+                            <button
+                            mdbBtn
+                            color="tw"
+                            type = "submit" size = "lg"
+                            gradient="blue" class= "waves-light" rounded="true" [disabled] = "!registrationForm.valid"
+                            mdbWavesEffect>
+                            Submit
+                            </button>
+                            <button 
+                                type = "button" mdbBtn color = "tw" size = "lg" 
+                                gradient="blue" class= "waves-light" rounded="true"
+                                mdbWavesEffect  (click) = "reset()">
+                                Reset
+                            </button>
+                    </div>
+                </form>
+            </mdb-card-body>
+        <!--/.Card content-->
+        </mdb-card>
+        <br><br>
+      <!--/.Card-->
+    </div>
+</div>
+  
+

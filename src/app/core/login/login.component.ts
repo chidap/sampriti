@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   disabledSubmitButton: boolean = true; 
+  authError: any;
   public signInFailed: boolean;
   public userAuth: Subscription;
 
@@ -30,7 +31,9 @@ export class LoginComponent implements OnInit {
     ) { 
       this.signInFailed = false;
       this.loginForm = this.fb.group({
-        'emailId': ['', Validators.required],
+        'emailId': ['', [
+          Validators.required,
+          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
         'pwd': ['', Validators.required]
       });
 
@@ -40,7 +43,9 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    
+    this.authService.eventAuthError$.subscribe(data => {
+      this.authError = data;
+    })
   }
 
   get emailId() {
@@ -55,10 +60,10 @@ export class LoginComponent implements OnInit {
     try {
       this.signInFailed = false;
       if (!fg.valid) throw new Error('Invalid sign-in credentials');
-      const result = this.authService.signIn(fg.value.emailID, fg.value.pwd);
-      console.log('that tickles', result);
-      if (result) this.router.navigate([ 'tasks' ]);
-      else throw new Error('Sign-in failed');
+      const result = this.authService.signIn(fg.value.emailId, fg.value.pwd);
+      console.log('result = ', result);
+      /*if (result) this.router.navigate([ 'registration' ]);
+      else throw new Error('Sign-in failed');*/
   } catch (error) {
       console.log(error);
       this.signInFailed = true;

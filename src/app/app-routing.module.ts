@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: "events", component: EventCalendarComponent },
     { path: "registration", component: RegistrationComponent },
     { path: "update", component: PujaUpdateComponent},
-    { path: "login", loadChildren: () => import(`./core/core.module`).then(m => m.CoreModule) } ,
+    { path: "member", loadChildren: () => import(`./core/core.module`).then(m => m.CoreModule) } ,
     { path: '**', redirectTo: ''}
 ]
 @NgModule({

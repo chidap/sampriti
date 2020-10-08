@@ -1,4 +1,5 @@
 export class MemberRegistration {
+    id?:any;
     title: any;
     firstName: string;
     lastName: string;
@@ -20,6 +21,7 @@ export class MemberRegistration {
     paidAmount:number;
     startDate: Date;
     expiryDate: Date;
+    role: string;
     memberId: string;
     password:string;
     isActive: string;

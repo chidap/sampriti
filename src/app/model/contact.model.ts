@@ -4,5 +4,6 @@ export class Contact {
     mobile: string;
     subject: string;
     message: string;
+    dtOfSubmit:string;
 
 }

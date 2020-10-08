@@ -13,12 +13,18 @@
               <mdb-card-body>
 
 	              <!--Header-->
-	              
+                <div class = "col-12">
+                  <div class = "row" *ngIf = "authError">
+                    <div class = "col-12 alert alert-danger">
+                      {{authError?.message}}
+                    </div>
+                  </div>
+                </div>
 	              <!--Body-->
 	              <form class="text-center" style="color: #757575;" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" >
   
                   <div class="md-form">
-                    <input type="text" id="emailId" formControlName = "emailId" class="form-control" mdbInput mdbValidate />
+                    <input type="email" id="emailId" formControlName = "emailId" class="form-control" mdbInput mdbValidate />
                     <label for="emailId" class = "active">Your email</label>
                     
                     <mdb-error *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"

@@ -1,7 +1,8 @@
 import { MemberRegistration } from './../../model/registration.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { MemberRegistrationService } from './member-registration.service';
+import { MDBDatePickerComponent, IMyOptions } from 'ng-uikit-pro-standard';
 import { ToastService } from 'ng-uikit-pro-standard';
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,11 @@ export class RegistrationComponent implements OnInit {
   familycountSelect: Array<any>;
   regData: MemberRegistration;
   
-
+  @ViewChild('datePicker', { static: true }) datePicker: MDBDatePickerComponent;
+  public myDatePickerOptions: IMyOptions = {
+    minYear: 1930,
+    maxYear: 2021
+  }
   constructor(
     private fb: FormBuilder,
     private registrationService: MemberRegistrationService,
@@ -41,15 +46,15 @@ export class RegistrationComponent implements OnInit {
         'lastName': ['', [Validators.required]],
         'address': ['', [Validators.required]],
         'area': ['', [Validators.required]],
-        'pincode': ['', [Validators.required]],
-        'mobileNo': ['', [Validators.required]],
-        'emailId': ['', [Validators.required]],
+        'pincode': ['', [ Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern('^[0-9]*$')]],
+        'mobileNo': ['', [Validators.required, Validators.minLength(10),Validators.maxLength(12),Validators.pattern('^[0-9]*$')]],
+        'emailId': ['', [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
         'dtOfBirth': ['', [Validators.required]],
         'profession': ['', []],
         'gender': ['', [Validators.required]],
         'isMarried': [''],
-        'spouseName': ['', []],
-        'familyCount': ['', []],
+        'spouseName': [{value: '', disabled: true}, []],
+        'familyCount': [{value: '', disabled: true}, []],
       });
   }
 

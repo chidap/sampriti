@@ -1,0 +1,161 @@
+<div class="row col-lg-12 col-md-12 justify-content-center mt-5">
+    <div class="col-lg-10 col-md-12">
+        <!--Card-->
+       
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+                <!--Card image-->
+            <div class="view view-cascade gradient-card-header blue-gradient">
+                <h4 class="h4-responsive">Add Expense Details</h4>
+            </div>
+                <!--Card content-->
+            <mdb-card-body cascade="true" class="text-center">
+                            
+                <form
+                    class="text-center"
+                    style="color: #757575;"
+                    [formGroup]="expenseForm"
+                    (ngSubmit)="onSubmit()"
+                >
+                    <div class = "row">
+                        <div class="col-md-2">
+                            <div class="md-form">
+                                <!--<mdb-select-2 label="Title" id = "title" formControlName = "title" >
+                                    <mdb-select-option class= "primary" *ngFor="let option of titleSelect" [value]="option.value" >{{ option.label }}</mdb-select-option>
+                                </mdb-select-2>-->
+                                <mdb-select 
+                                    [options] = "expenseTypeSelect" name = "expenseType" placeholder=" " formControlName = "expenseType" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="expenseType" class = "active">Expense Type</label>   
+                            </div>  
+                        </div>
+                        <div class="col-md-5">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="expenseDescription" formControlName = "expenseDescription" class="form-control" mdbValidate >
+                                <label for="expenseDescription" class = "active">Expense Description *</label>
+                                
+                            </div>  
+                        </div>
+                        <div class="col-md-5">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="vendorName" formControlName = "vendorName" class="form-control" mdbValidate>
+                                <label for="vendorName" class = "active">Vendor Name*</label>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <mdb-date-picker #datePicker 
+                                    id = "dtOfExpense" formControlName = "dtOfExpense"
+                                    name = "dtOfExpense" [options] = "myDatePickerOptions"
+                                >
+                                </mdb-date-picker>
+                                <label for="dtOfExpense" class = "active">Date of Expense</label>   
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="totalAmount" formControlName = "totalAmount" class="form-control" mdbValidate >
+                                <label for="totalAmount" class = "active">Total Amount *</label>
+                                
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <mdb-select 
+                                    [options] = "paymentTypeSelect" name = "paymentType" placeholder=" " formControlName = "paymentType" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="paymentType" class = "active">Payment Type*</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-2">
+                            <div class="md-form">
+                                <mdb-select 
+                                    [options] = "paymentStatusSelect" name = "paymentStatus" placeholder=" " formControlName = "paymentStatus" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="paymentStatus" class = "active">Payment Status *</label>   
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="amountPaid" formControlName = "amountPaid" class="form-control" mdbValidate >
+                                <label for="amountPaid" class = "active">Amount Paid *</label>
+                                
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <mdb-select 
+                                    [options] = "paymentModeSelect" name = "paymentMode" placeholder=" " formControlName = "paymentMode" class = "colorful-select dropdown-info" >
+                                </mdb-select>
+                                <label for="paymentMode" class = "active">Payment Mode*</label>
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <input mdbInput type="text" id="referenceNo" formControlName = "referenceNo" class="form-control" mdbValidate >
+                                <label for="referenceNo" class = "active">Reference No *</label>
+                                
+                            </div>  
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <mdb-date-picker #datePicker 
+                                    id = "dtOfPayment" formControlName = "dtOfPayment"
+                                    name = "dtOfPayment" [options] = "myDatePickerOptions"
+                                >
+                                </mdb-date-picker>
+                                <label for="dtOfPayment" class = "active">Date of Payment *</label>
+                            </div>  
+                        </div>   
+
+                    </div>
+
+                    <div class = "row">
+                        <div class="col-md-6">
+                            <div class="file-field md-form">
+                                <div mdbBtn floating="true" size="md" gradient="purple" mdbWavesEffect>
+                                    <mdb-icon fas icon="cloud-upload-alt" aria-hidden="true"></mdb-icon>
+                                    <input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+                                </div>
+                                <div class="file-path-wrapper mt-3">
+                                  <input class="file-path" type="text" placeholder="Upload your file" [value]="showFiles()">
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class = "text-center">
+                        <button
+                        mdbBtn
+                        color="tw"
+                        type = "submit" size = "lg"
+                        gradient="blue" class= "waves-light" rounded="true" [disabled] = "!expenseForm.valid"
+                        mdbWavesEffect>
+                        Submit
+                        </button>
+                        <button 
+                            type = "button" mdbBtn color = "tw" size = "lg" 
+                            gradient="blue" class= "waves-light" rounded="true"
+                            mdbWavesEffect  (click) = "reset()">
+                            Reset
+                        </button>
+                    </div>
+                    
+                                
+                </form>
+                            
+            </mdb-card-body>
+                        <!--/.Card content-->
+                        
+        </mdb-card>
+            <!--/.Card content-->
+    <!--/.Card-->
+      <!--/.Card-->
+      <br>
+    </div>
+</div>
